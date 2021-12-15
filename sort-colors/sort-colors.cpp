@@ -25,6 +25,7 @@ public:
         */
         
         //Two Pointers
+        /*
         int n=nums.size();
         int k,l;
         k=0;
@@ -52,6 +53,32 @@ public:
         
         for(int i=0;i<n;i++){
             nums[i]=numsUpd[i];
+        }
+        */
+        
+        //Dutch National Flag Algorithm
+        int n=nums.size();
+        if(n==1||n==0){
+            return;
+        }
+        int low, mid, high;
+        low=0;
+        mid=0;
+        high = n-1;
+        
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(&nums[low++], &nums[mid++]);
+                continue;
+            }
+            if(nums[mid]==1){
+                mid++;
+                continue;
+            }
+            else{
+                swap(&nums[mid], &nums[high--]);
+                continue;
+            }
         }
     } 
 };
